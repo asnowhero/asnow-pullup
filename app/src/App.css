@@ -1,0 +1,37 @@
+.app-p-break{
+    width: 45%;
+    font-size: 0.6em;
+    word-break:normal;
+    white-space:pre-wrap;
+    word-wrap:break-word;
+}
+
+.header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 999;
+}
+
+.header h1{
+    display: inline-block;
+    color: #fff;
+    margin-left: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    font-family: Avenir,Helvetica Neue,Arial,Helvetica,sans-serif;
+    vertical-align: middle;
+}
+
+.logo img{
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin-top: 8px;
+    vertical-align: middle;
+}
+
+.change-locale{
+    display: inline-block;
+    float: right;
+}
