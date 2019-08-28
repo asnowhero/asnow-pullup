@@ -1,6 +1,8 @@
 Asnow is a decentralized application based on SERO
 
 * The player can choose these genesis points
+
+```
 IFVUSKIRFSIDF
 LNVV62JX5SLPF
 KNVU2KJVVSKLF
@@ -29,3 +31,4 @@ QFWYCLMBFUQDG
 TNWZO3NH5UTPG
 SNWYKLNFVUSLG
 VVW3G3OLNVVXG
+```
