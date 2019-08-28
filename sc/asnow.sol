@@ -631,14 +631,14 @@ contract Asnow is InvestorRelationship, Ownable {
     }
 
     function details() public view
-    returns (string, string, uint256, uint256, uint256, uint256, uint256, uint256, uint256, uint8, bool)  {
+    returns (string, string, uint256, uint256, uint256, uint256, uint256, uint256, uint256, uint8, bool, uint256)  {
         Investor memory i = findByAddr(msg.sender);
         uint256 largeAchievement;
         if (i.largeAreaId != 0) {
             largeAchievement = investors[i.largeAreaId].achievement.add(investors[i.largeAreaId].totalAmount);
         }
 
-        return (codeService.encode(uint64(i.refereeId)), codeService.encode(uint64(i.largeAreaId)), largeAchievement, i.amount, i.returnAmount, i.achievement, i.recommendNum, i.profitLevel, i.value, i.star, i.isKing);
+        return (codeService.encode(uint64(i.refereeId)), codeService.encode(uint64(i.largeAreaId)), largeAchievement, i.amount, i.returnAmount, i.achievement, i.recommendNum, i.profitLevel, i.value, i.star, i.isKing, i.totalAmount);
     }
 
     function detailsOfIncome() public view returns (uint256, uint256, uint256, uint256, uint256, uint256){
