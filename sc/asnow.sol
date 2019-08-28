@@ -45,9 +45,7 @@ library Utils {
 
 
     function sameDay(uint day1, uint day2) internal pure returns (bool){
-        //        return day1 / 24 / 3600 == day2 / 24 / 3600;
-        //        return day1 / 3600 == day2 / 3600;
-        return day1 / 600 == day2 / 600;
+                return day1 / 24 / 3600 == day2 / 24 / 3600;
     }
 
     function bytes32Eq(bytes32 a, bytes32 b) internal pure returns (bool) {
@@ -219,11 +217,11 @@ contract InvestorRelationship is Config, SeroInterface {
     uint256 public totalShare;
     uint256 public lastUpdated;
 
-    uint256 public cash;
+    uint256 private cash;
 
-    mapping(address => uint256) public indexs;
-    Investor[] public investors;
-    ReturnReward[] public returnRewards;
+    mapping(address => uint256) indexs;
+    Investor[] investors;
+    ReturnReward[] returnRewards;
 
     using SafeMath for uint256;
 
@@ -570,10 +568,10 @@ contract Asnow is InvestorRelationship, Ownable {
     uint256[] private  startList = [8e16, 28e16, 68e16, 128e16, 208e16, 448e16, 848e16, 1648e16, 3248e16];
 
     uint256 private _totalSupply = 21e24;
-    bool public isSell = true;
+    bool private isSell = true;
     uint256 private triggerStaticNum = 20;
 
-    uint256 public allIncome;
+    uint256 private allIncome;
     mapping(address => uint256) private asnowBalances;
     address private marketAddr;
 
