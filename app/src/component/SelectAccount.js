@@ -1,10 +1,14 @@
 import React, {Component} from 'react'
 import {Modal, Select} from "antd";
 import Axios from "../server";
+import Pullup from "pullup-js-sdk";
 
 let tmpPkr = '';
 let ajax = new Axios();
 const {Option} = Select;
+
+var pullup = new Pullup();
+pullup.setProvider(new pullup.providers.HttpProvider('http://127.0.0.1:2345'));
 
 class SelectAccount extends Component {
 
@@ -45,26 +49,31 @@ class SelectAccount extends Component {
 
     getAccounts() {
         let that = this;
-        ajax.post("account/list", {}, {}, function (res) {
 
-            if (res.base.code === "SUCCESS") {
-                let dataArray = res.biz;
-                let i = 0;
-                let tmpArr = [];
-                for (let ac of dataArray) {
-                    let acName = ac.Name;
-                    i++
-                    if (!acName){
-                        acName = "Account"+i;
-                    }
-                    tmpArr.push(<Option value={ac.MainPKr} key={i}>{acName+" "+ac.PK}</Option>)
+        let res = pullup.local.accountList()
+
+        if (res) {
+            let dataArray = res;
+            let i = 0;
+            let tmpArr = [];
+            for (let ac of dataArray) {
+                let acName = ac.Name;
+                i++
+                if (!acName){
+                    acName = "Account"+i;
                 }
-                that.setState({
-                    accountOptions: tmpArr,
-                    accounts: dataArray
-                })
+                tmpArr.push(<Option value={ac.MainPKr} key={i}>{acName+" "+ac.PK}</Option>)
             }
-        })
+            that.setState({
+                accountOptions: tmpArr,
+                accounts: dataArray
+            })
+        }
+
+        // ajax.post("account/list", {}, {}, function (res) {
+        //
+        //
+        // })
     };
 
     render() {
