@@ -45,7 +45,7 @@ library Utils {
 
 
     function sameDay(uint day1, uint day2) internal pure returns (bool){
-                return day1 / 24 / 3600 == day2 / 24 / 3600;
+        return day1 / 24 / 3600 == day2 / 24 / 3600;
     }
 
     function bytes32Eq(bytes32 a, bytes32 b) internal pure returns (bool) {
@@ -211,11 +211,11 @@ contract InvestorRelationship is Config, SeroInterface {
         uint256 updateTimestamp;
     }
 
-    uint256 public preTotalShare;
-    uint256 public preRewardAmount;
+    uint256 preTotalShare;
+    uint256 preRewardAmount;
 
-    uint256 public totalShare;
-    uint256 public lastUpdated;
+    uint256 totalShare;
+    uint256 lastUpdated;
 
     uint256 private cash;
 
